@@ -1,0 +1,121 @@
+header{
+    width:inherit;
+    clear:both;
+    text-align:center;
+    padding-top:40px;
+    img{
+        max-width:100%;
+        height:auto;
+        @include break(maxwidth767px){
+            margin-bottom:100px;
+        }
+        @include break(maxwidth459px){
+            margin-bottom:80px;
+        }
+    }
+    h1{
+        @include headingStyle;
+        @include break(maxwidth945px){
+            font-size:3em;
+        }
+        @include break(maxwidth767px){
+            font-size:2em;
+        }
+        &:first-child{
+            @include break(maxwidth459px){
+                font-size:1.4em;
+                margin-bottom:20px;
+            }
+        }
+    }
+    h2{
+        @include headingStyle($white,900,2.5em,0,70px);
+        $h2MediaQuery:(
+            maxwidth945px:1.5em,
+            maxwidth767px:1em,
+            maxwidth459px:1.4em
+            );
+        @each $name, $value in $h2MediaQuery{
+            @include break(#{$name}){
+                font-size:$value;
+             }
+         }
+
+    }
+    h3{
+        @include headingStyle($grey,400,2em,0,50px);
+        @include break(maxwidth767px){
+            font-size:1.5em;
+        }
+        @include break(maxwidth459px){
+            color:$white;
+            font-size:1em;
+        }
+    }
+}
+
+.greybar{
+    @include square(100px,90px,null);
+    background:$greybarcolor;
+    clear:both;
+    padding-top:30px;
+}
+.greybar,article img{
+    @include break(maxwidth459px){
+        display:none;
+    }
+}
+
+#headline{
+    @include square(100%,130px,null);
+    background:$orange;
+    text-align:center;
+    margin:0 auto;
+
+    h1 {
+        color:$white;
+        font-size:2.5em;
+        font-weight:100;
+        padding-top:50px;
+        @include break(maxwidth767px){
+            font-size:2em;
+            padding-top:50px;
+        }
+        @include break(maxwidth459px){
+            font-size:1.5em;padding-top:30px;
+        }
+    }
+}
+
+#content{
+    width:940px;
+    margin:20px auto;
+    @include break(maxwidth945px){
+        width:inherit;
+    }
+    h3{
+        color:$grey;
+        font-size:2em;
+        font-weight:400;
+        @include break(maxwidth459px){
+            font-size:1.6em;
+        }
+    }
+    #products{
+       @include productStyle(margin,20px,left);
+    }
+    
+    #testimonials{
+        @include square(460px,null,right);
+    }
+    #products,#testimonials{
+        @include break(maxwidth945px){
+            width:46%;
+            margin:0 2%;
+        }
+        @include break(maxwidth767px){
+            margin:0 2%;
+            @include square(96%,null,none);
+        }
+    }
+}

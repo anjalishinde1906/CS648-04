@@ -1,0 +1,56 @@
+@mixin break($breakpoint){
+    @if $breakpoint == maxwidth945px {
+        @media screen and (max-width:959px){ 
+            @content; 
+        }
+    }
+    @if $breakpoint == maxwidth767px {
+        @media screen and (max-width:767px){ 
+            @content; 
+        }
+    }
+    @if $breakpoint == maxwidth459px{
+        @media screen and (max-width:459px){ 
+            @content; 
+        }
+    }
+}
+
+@mixin square($width:10px,$height:10px,$float:none) {
+    width: $width;
+    height: $height;
+    float: $float;
+}
+
+@mixin headingStyle($color:$orange,$weight:100,$size:4em,$height:0,$margin-bottom:null){
+        color:$color;
+        font-weight:$weight;
+        font-size:$size;
+        line-height:$height;
+        margin-bottom:$margin-bottom;
+  }
+
+@mixin footerStyle($width:100px,$height:100px){
+    width:$width;
+    height:$height;
+    background:$darkgrey;
+    text-align:center;
+    color:$white;
+    padding-top:$height/2 - 10px;
+
+}
+
+@mixin productStyle($property,$margin,$float){
+    width:$margin * 23;
+        float:$float;
+        img {
+            float:$float;
+            #{$property}-right:$margin;
+        }
+        article{
+            #{$property}-bottom:$margin * 2;
+        }
+        h4{
+            line-height:1em;
+        }
+}
